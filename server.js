@@ -12,7 +12,20 @@ app.get('/', (req, res) => {
 });
 
 app.get('/idioma', (req, res) => {
+    res.render('index');
+});
+
+app.get('/paises', (req, res) => {
     res.render('country');
+});
+
+app.get('/encuestas', (req, res) => {
+    const preguntas = [{
+        titulo: "pregunta de ejemplo",
+        opciones: ["Si", "No", "No se"]
+    }
+    ]
+    res.render("form", { preguntas })
 });
 
 app.listen(port, () => {

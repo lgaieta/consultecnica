@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hackaton</title>
+</head>
+
+<body>
+
+    <main class="main">
+        <form action="" class="">
+            <li>
+                <% for(let i=0; i < preguntas.length; i++) { %>
+                    <p>
+                        <%= preguntas[i].titulo%>
+                    </p>
+                    <%for(let j=0; j < preguntas[i].opciones.length; j++) {%>
+                        <input type="radio" value=""><label>
+                            <%= preguntas[i].opciones[j]%>
+                        </label>
+                        <%}%>
+            </li>
+            <%}%>
+
+        </form>
+    </main>
+
+</body>
+
+</html>
