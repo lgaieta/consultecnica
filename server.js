@@ -8,7 +8,11 @@ app.set('views', './frontend');
 app.use(express.static('frontend'));
 
 app.get('/', (req, res) => {
-    res.render('index', { nombrecito: 'Brian culon' });
+    res.render('home');
+});
+
+app.get('/idioma', (req, res) => {
+    res.render('country');
 });
 
 app.listen(port, () => {
