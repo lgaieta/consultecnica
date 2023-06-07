@@ -1,0 +1,54 @@
+.centrar-texto {
+    text-align: center;
+}
+
+.logo {
+    height: 13rem;
+}
+
+body {
+    background: rgb(245, 245, 255);
+    background: linear-gradient(0deg, rgba(245, 245, 255, 1) 0%, rgba(221, 220, 255, 1) 100%);
+    min-height: 100vh;
+}
+
+.settings {
+    position: absolute;
+    align-self: end;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.lista_tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tarjetas {
+    width: 100%;
+}
+
+.tarjeta-fondo-blanco {
+    background-color: var(--background);
+}
+
+@media (min-width: 1028px) {
+    .main {
+        padding: 5rem 12rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding: 5rem 6rem;
+    }
+}
