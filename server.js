@@ -11,8 +11,20 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+app.get('/resultados', (req, res) => {
+    const preguntas = [{
+        titulo: "Alguna vez has sufrido de bullying?",
+        opciones: [
+            "Si",
+            "No"
+        ]
+    },]
+
+    res.render('results', { preguntas });
+});
+
 app.get('/idioma', (req, res) => {
-    res.render('country');
+    res.render('language');
 });
 
 app.listen(port, () => {

@@ -1,0 +1,65 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap'); 'Rowdies', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+h1,
+h2 {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.titulo01 {
+    color: #145E96;
+}
+
+.titulo02 {
+    color: #f6c53cff;
+}
+
+.espanhol {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    background-image: linear-gradient(to right, #002369, rgb(50, 3, 217));
+    border: none;
+    width: 100%;
+    height: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.portugues {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: rgb(45, 45, 45);
+    background-image: linear-gradient(to right, #f6c53cff, rgb(251, 255, 0));
+    border: none;
+    width: 100%;
+    height: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.bordaTela {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5rem;
+}
+
+.logo {
+    margin-top: 10%;
+}
+
+.background {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(rgba(245, 245, 255, 1) 0%, rgba(221, 220, 255, 1));
+}
