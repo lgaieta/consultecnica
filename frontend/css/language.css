@@ -1,65 +1,64 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap'); 'Rowdies', cursive;*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-h1,
-h2 {
-    font-family: 'Poppins', sans-serif;
-
+.main {
+    max-width: 450px;
 }
 
-.titulo01 {
-    color: #145E96;
+.main-title {
+    text-align: center;
 }
 
-.titulo02 {
-    color: #f6c53cff;
+.main-subtitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
 }
 
-.espanhol {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    color: white;
-    background-image: linear-gradient(to right, #002369, rgb(50, 3, 217));
+.button {
+    font-size: 1.125rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    padding: 16px 24px;
+    flex-wrap: nowrap;
     border: none;
     width: 100%;
-    height: 4rem;
-    border-radius: 1rem;
-    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
-.portugues {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
+.button-primary {
+    background-image: linear-gradient(to right, #0489ef, #142396);
+    color: #ffffff;
+
+}
+
+.button-secondary {
+    background-image: linear-gradient(to right, #fff700, #f6c53cff);
     color: rgb(45, 45, 45);
-    background-image: linear-gradient(to right, #f6c53cff, rgb(251, 255, 0));
-    border: none;
-    width: 100%;
-    height: 4rem;
-    border-radius: 1rem;
-    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
 }
 
-.bordaTela {
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 5rem;
+.button-primary:hover {
+    background-image: linear-gradient(to right, #0058cb, #63a7ff);
 }
 
-.logo {
-    margin-top: 10%;
+.button-secondary:hover {
+    background-image: linear-gradient(to right, rgb(255, 187, 0), rgb(255, 225, 0));
 }
 
-.background {
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%;
+.logo-consultecnica {
+    margin-top: 2rem;
 }
 
-body {
-    background: linear-gradient(rgba(245, 245, 255, 1) 0%, rgba(221, 220, 255, 1));
+.logo-mercosur {
+    height: 6rem;
+    padding-top: 3rem;
 }

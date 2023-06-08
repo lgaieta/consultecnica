@@ -11,10 +11,10 @@ app.use(express.urlencoded({
     extended: true
 }))
 
+app.get('/idioma', (req, res) => {
+    res.render("language")
+})
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
 
 app.get('/resultados', (req, res) => {
     const preguntas = [{
@@ -33,6 +33,10 @@ app.get('/resultados', (req, res) => {
 app.post("/encuestas", (req, res) => {
     console.log(req.body)
 })
+
+app.get('/', (req, res) => {
+    res.render('home');
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
