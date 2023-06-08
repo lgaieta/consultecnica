@@ -2,51 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Hackaton</title>
+    <%- include("components/head", {title: "Inicio - Consultécnica" })%>
+        <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="isotype"><img src="icons/isotipo.svg" alt="" class="isotype-icon"></a>
-        <a href="#" class="settings"><img src="icons/ajustes-azul.svg" alt="" class="settings-icon"></a>
-    </header>
+    <%- include('components/header') %>
+        <main class="main">
+            <h1 class="main-title">Bienvenidos</h1>
 
-    <main class="main">
-        <h1 class="main-title">Bienvenidos</h1>
-
-        <div class="cards-list">
-            <a href="#" class="card">
-                <img src="icons/te-escuchamos.svg" alt="" class="card-icon">
-                <div class="card-texts">
-                    <p class="card-title">Te escuchamos</p>
-                    <p class="card-description">Realiza una serie de encuestas contando tu experiencia educativa.</p>
-                </div>
-            </a>
-            <a href="#" class="card">
-                <img src="icons/tu-opinion-en-cifras.svg" alt="" class="card-icon">
-                <div class="card-texts">
-                    <p class="card-title">Tu opinión en cifras</p>
-                    <p class="card-description">Observa tus respuestas y las de miles de estudiantes para conocer lo que
-                        piensan.</p>
-                </div>
-            </a>
-            <a href="#" class="card">
-                <img src="icons/tu-opinion-construye.svg" alt="" class="card-icon">
-                <div class="card-texts">
-                    <p class="card-title">Tu opinión construye</p>
-                    <p class="card-description">Revisa el impacto real que tuvieron tus respuestas</p>
-                </div>
-            </a>
-        </div>
-    </main>
+            <div class="cards-list">
+                <a href="#" class="card">
+                    <img src="icons/te-escuchamos.svg" alt="" class="card-icon">
+                    <div class="card-texts">
+                        <p class="card-title">Te escuchamos</p>
+                        <p class="card-description">Realiza una serie de encuestas contando tu experiencia educativa.
+                        </p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <img src="icons/tu-opinion-en-cifras.svg" alt="" class="card-icon">
+                    <div class="card-texts">
+                        <p class="card-title">Tu opinión en cifras</p>
+                        <p class="card-description">Observa tus respuestas y las de miles de estudiantes para conocer lo
+                            que
+                            piensan.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <img src="icons/tu-opinion-construye.svg" alt="" class="card-icon">
+                    <div class="card-texts">
+                        <p class="card-title">Tu opinión construye</p>
+                        <p class="card-description">Revisa el impacto real que tuvieron tus respuestas</p>
+                    </div>
+                </a>
+            </div>
+        </main>
 </body>
 
 </html>

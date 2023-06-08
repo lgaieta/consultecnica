@@ -2,32 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hackaton</title>
+    <%- include("components/head", {title: "Inicio - Consultécnica" })%>
+        <title>hackaton</title>
 </head>
 
 <body>
-    <main class="main">
-        <form action="/encuestas" method="POST">
-            <% for (let i = 0; i < preguntas.length; i++) { %>
-                <li>
-                    <p>
-                        <%= preguntas[i].titulo%>
-                    </p>
-                    <% for (let j = 0; j < preguntas[i].opciones.length; j++) {%>
-                        <input id="<%= preguntas[i].id%><%= preguntas[i].opciones[j]%>" type="radio" value="<%= preguntas[i].opciones[j]%>" name="<%= preguntas[i].id%>">
-                        <label for="<%= preguntas[i].id%><%= preguntas[i].opciones[j]%>" >
-                            <%= preguntas[i].opciones[j]%>
-                        </label>
+    <%- include('components/header') %>
+        <main class="main">
+            <form action="/encuestas" method="POST">
+                <% for (let i=0; i < preguntas.length; i++) { %>
+                    <li>
+                        <p>
+                            <%= preguntas[i].titulo%>
+                        </p>
+                        <% for (let j=0; j < preguntas[i].opciones.length; j++) {%>
+                            <input id="<%= preguntas[i].id%><%= preguntas[i].opciones[j]%>" type="radio"
+                                value="<%= preguntas[i].opciones[j]%>" name="<%= preguntas[i].id%>">
+                            <label for="<%= preguntas[i].id%><%= preguntas[i].opciones[j]%>">
+                                <%= preguntas[i].opciones[j]%>
+                            </label>
+                            <%}%>
+                    </li>
+                    <br>
                     <%}%>
-                </li>
-                <br>
-            <%}%>
-            <button type="submit" class="btn-enviar">Enviar</button>
-        </form>
-    </main>
+                        <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+        </main>
 
 </body>
 
