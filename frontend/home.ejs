@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/system.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,29 +14,36 @@
 </head>
 
 <body>
+    <header class="header">
+        <a href="#" class="isotype"><img src="icons/isotipo.svg" alt="" class="isotype-icon"></a>
+        <a href="#" class="settings"><img src="icons/ajustes-azul.svg" alt="" class="settings-icon"></a>
+    </header>
 
     <main class="main">
-        <a href="" class="settings">Ajustes</a>
+        <h1 class="main-title">Bienvenidos</h1>
 
-        <img class="logo" src="logo vertical consultecnica plano.svg" alt="Nuestro Logotipo" />
-        <p class="centrar-texto">Esto es un espacio de consulta para conocer tu experiencia y ayudar a mejorar la
-            calidad de las escuelas técnicas del MERCOSUR
-        </p>
-
-        <div class="lista_tarjetas">
-            <a href="#" class="tarjeta tarjeta-primary centrar-texto">
-                <h3>Te escuchamos</h3>
-                <p>esto es un texto cualquiera</p>
+        <div class="cards-list">
+            <a href="#" class="card">
+                <img src="icons/te-escuchamos.svg" alt="" class="card-icon">
+                <div class="card-texts">
+                    <p class="card-title">Te escuchamos</p>
+                    <p class="card-description">Realiza una serie de encuestas contando tu experiencia educativa.</p>
+                </div>
             </a>
-
-            <a href="#" class="tarjeta tarjeta-secondary centrar-texto">
-                <h3>Tu Opinion en cifras</h3>
-                <p>esto es un texto cualquiera</p>
+            <a href="#" class="card">
+                <img src="icons/tu-opinion-en-cifras.svg" alt="" class="card-icon">
+                <div class="card-texts">
+                    <p class="card-title">Tu opinión en cifras</p>
+                    <p class="card-description">Observa tus respuestas y las de miles de estudiantes para conocer lo que
+                        piensan.</p>
+                </div>
             </a>
-
-            <a href="#" class="tarjeta tarjeta-fondo-blanco centrar-texto">
-                <h3>Tu Opinion construye</h3>
-                <p>esto es un texto cualquiera</p>
+            <a href="#" class="card">
+                <img src="icons/tu-opinion-construye.svg" alt="" class="card-icon">
+                <div class="card-texts">
+                    <p class="card-title">Tu opinión construye</p>
+                    <p class="card-description">Revisa el impacto real que tuvieron tus respuestas</p>
+                </div>
             </a>
         </div>
     </main>
