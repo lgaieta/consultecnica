@@ -11,18 +11,10 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-
-app.get('/', (req, res) => {
-    res.render('home');
-});
-
 app.get('/idioma', (req, res) => {
-    res.render('index');
-});
+    res.render("language")
+})
 
-app.get('/paises', (req, res) => {
-    res.render('country');
-});
 
 app.get('/secciones', (req, res) => {
     res.render('sections');
@@ -33,7 +25,7 @@ app.get('/encuestas', (req, res) => {
         id: 410,
         titulo: "pregunta de ejemplo",
         opciones: ["Si", "No", "No se"]
-    },{
+    }, {
         id: 412,
         titulo: "pregunta de ejemplo2",
         opciones: ["Si", "No", "No se"]
@@ -45,6 +37,10 @@ app.get('/encuestas', (req, res) => {
 app.post("/encuestas", (req, res) => {
     console.log(req.body)
 })
+
+app.get('/', (req, res) => {
+    res.render('home');
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
