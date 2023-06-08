@@ -71,8 +71,3 @@ body {
         max-width: 60%;
     }
 }
-
-.contenedor_formulario {
-    display: block;
-    flex-direction: column;
-}

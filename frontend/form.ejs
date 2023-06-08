@@ -9,22 +9,23 @@
 </head>
 
 <body>
-
     <main class="main">
-        <form action="" class="">
-            <li>
-                <% for(let i=0; i < preguntas.length; i++) { %>
+        <form action="/encuestas" method="POST">
+            <% for (let i = 0; i < preguntas.length; i++) { %>
+                <li>
                     <p>
                         <%= preguntas[i].titulo%>
                     </p>
-                    <%for(let j=0; j < preguntas[i].opciones.length; j++) {%>
-                        <input type="radio" value=""><label>
+                    <% for (let j = 0; j < preguntas[i].opciones.length; j++) {%>
+                        <input id="<%= preguntas[i].id%><%= preguntas[i].opciones[j]%>" type="radio" value="<%= preguntas[i].opciones[j]%>" name="<%= preguntas[i].id%>">
+                        <label for="<%= preguntas[i].id%><%= preguntas[i].opciones[j]%>" >
                             <%= preguntas[i].opciones[j]%>
                         </label>
-                        <%}%>
-            </li>
+                    <%}%>
+                </li>
+                <br>
             <%}%>
-
+            <button type="submit" class="btn-enviar">Enviar</button>
         </form>
     </main>
 
