@@ -10,6 +10,12 @@ body {
     flex-wrap: nowrap;
 }
 
+@font-face {
+    font-family: Rowdies;
+    src: url(../rowdies-regular.ttf);
+    font-weight: 400;
+}
+
 .header {
     display: flex;
     flex-direction: row;
