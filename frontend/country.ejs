@@ -2,28 +2,53 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/system.css">
-    <title>Hackaton</title>
+    <%- include("components/head", {title: "Paises - Consultécnica" })%>
+        <link rel="stylesheet" href="css/country.css">
 </head>
 
 <body>
-    <main class="main">
-        <div class="lista_paises">
-            <h1 class="centrar-texto">Seleccione su pais</h1>
-            <button href="#" value="" class="pais tarjeta-primary">Paraguay</button>
-            <button href="#" value="" class="pais tarjeta-primary">Uruguay</button>
-            <button href="#" value="" class="pais tarjeta-primary">Brasil</button>
-            <button href="#" value="" class="pais tarjeta-primary">Argentina</button>
+    <%- include('components/header') %>
+        <main class="main">
+            <h1 class="main-title">Seleccione su pais</h1>
+            <div class="cards-list">
+                <div class="">
+                    <a href="#" class="country">
+                        <img src="icons/BRASIL.svg" alt="" class="country_size">
+                        <div class="">
+                            <h1 class="country_title">Brasil</h1>
+                        </div>
+                    </a>
+                </div>
 
-        </div>
-    </main>
+                <div class="">
+                    <a href="#" class="country">
+                        <img src="icons/URUGUAY.svg" alt="" class="country_size">
+                        <div class="">
+                            <h1 class="country_title">Uruguay</h1>
+                        </div>
+                    </a>
+                </div>
 
-    <!--La idea es agregar imagenes de fondo con cada pais o lo que decida el equipo de interface-->
+                <div class="">
+                    <a href="#" class="country">
+                        <img src="icons/ARGENTINA.svg" alt="" class="country_size">
+                        <div class="">
+                            <h1 class="country_title">Argentina</h1>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="">
+                    <a href="#" class="country">
+                        <img src="icons/PARAGUAY.svg" alt="" class="country_size">
+                        <div class="">
+                            <h1 class="country_title">Paraguay</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
 </body>
 
 </html>

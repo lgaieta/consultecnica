@@ -24,6 +24,10 @@ app.get('/paises', (req, res) => {
     res.render('country');
 });
 
+app.get('/secciones', (req, res) => {
+    res.render('sections');
+})
+
 app.get('/encuestas', (req, res) => {
     const preguntas = [{
         id: 410,
