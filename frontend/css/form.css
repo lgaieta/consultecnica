@@ -1,0 +1,31 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    font-size: 1.125rem;
+    font-family: 'Inter';
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+.label-button {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border: 1px #000 solid;
+    border-radius: 1rem;
+}
+
+input[type='radio']:checked + label {
+    background-color: rgba(0, 35, 105, 1);
+    color: #fcfcfc;
+}
