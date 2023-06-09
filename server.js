@@ -27,7 +27,7 @@ app.get('/resultados', (req, res) => {
         opciones: ["Si", "No", "No se"]
     },
     ]
-    res.render("form", { preguntas })
+    res.render("results", { preguntas })
 });
 
 app.post("/encuestas", (req, res) => {

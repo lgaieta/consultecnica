@@ -2,32 +2,88 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/results.css">
-    <title>Results</title>
+    <%- include("components/head", {title: "Estadísticas - Consultécnica" })%>
+        <link rel="stylesheet" href="css/results.css">
 </head>
 
 <body>
-    <center>
-        <h1 class="titulo01">Nombre de Sección</h1>
-        <p class="subtitulo01">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id explicabo rerum voluptatibus
-            quidem
-            iure libero rem eaque sit autem consequatur, nesciunt, obcaecati corporis enim, sint tenetur
-            mollitia magni accusantium. Unde.</p>
-    </center>
+    <%- include("components/header")%>
 
-    <ul class="preguntas">
-        <% for (let i=0; i < preguntas.length; i++) {%>
-            <li>
-                <p>
-                    <%= preguntas[i].titulo%>
-                </p>
+        <center>
+            <h1 class="main-title">Infraestructura</h1>
+            <p class="main-subtitle">¿Cómo considera la calidad y cantidad de materiales que ofrece su institución?</p>
+        </center>
 
-            </li>
-            <%}%>
-    </ul>
+        <ul class="preguntas">
+            <% for (let i=0; i < preguntas.length; i++) {%>
+                <li>
+                    <p>
+                        <%= preguntas[i].titulo%>
+                    </p>
+
+                </li>
+                <%}%>
+        </ul>
+
+        <!--GRÁFICO CHARTJS-->
+
+        <canvas class="line-chart"></canvas>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <script>
+            var ctx = document.getElementsByClassName("line-chart");
+
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["text-01", "text-02", "text-03", "text-04"],
+                    datasets: [{
+
+                        label: "PARAGUAY",
+                        data: [20, 25, 15, 15],
+                        borderWidth: 6,
+                        borderColor: 'transparent',
+                        backgroundColor: 'rgba(255,215,0)',
+                    },
+                    {
+                        label: "BRASIL",
+                        data: [3, 15, 30, 25],
+                        borderWidth: 6,
+                        borderColor: 'transparent',
+                        backgroundColor: '#008000',
+                    },
+                    {
+                        label: "ARGENTINA",
+                        data: [6, 35, 10, 45],
+                        borderWidth: 6,
+                        borderColor: 'transparent',
+                        backgroundColor: '#BE2444',
+                    },
+                    {
+                        label: "URUGUAY",
+                        data: [3, 15, 7, 4],
+                        borderWidth: 6,
+                        borderColor: 'transparent',
+                        backgroundColor: '#0489ef',
+                    },
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        fontSize: 20,
+                        text: "TITULO DEL GRÁFICO AQUÍ"
+
+                    },
+                    labels: {
+                        fontStyle: "bold"
+                    }
+                }
+            });
+
+        </script>
+
 </body>
 
 </html>
