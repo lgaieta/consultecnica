@@ -44,11 +44,18 @@ app.get('/encuestas_infraestructura', async (req, res) => {
 
         data[index] = { ...question, options }
     }
-    res.render('form_infraestructura', { data });
+    res.render('form_infraestructura', { data, country: req.query.pais });
 });
 
-app.post('/encuestas', (req, res) => {
-    console.log(req.body);
+app.post('/encuestas', async (req, res) => {
+    const data = req.body
+    const country = data.country;
+    delete data.country;
+
+    console.log(country)
+
+    await dbPoolAsync.query(`insert into answer (question_answer, options_answer, country) values ${Object.entries(data).map(([qId, oId]) => '(' + qId + ',' + oId + ',"' + country + '")').join(',')};`)
+    res.redirect("/")
 });
 
 app.get('/', (req, res) => {

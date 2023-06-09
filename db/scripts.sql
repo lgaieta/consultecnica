@@ -1,5 +1,8 @@
 use contec;
 
+alter table answer
+add country varchar(10);
+
 insert into section (name) values ("Infraestructura");
 
 select * from section;
@@ -15,3 +18,5 @@ insert into options_has_question (question_id_question, options_id_option) value
 insert into options_has_question (question_id_question, options_id_option) values (2,6), (2, 7);
 
 select * from options_has_question;
+
+select * from answer;

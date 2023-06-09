@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include("components/head", {title: "Inicio - Consultécnica" })%>
+
+<head>
+    <%- include("components/head", {title: "Inicio - Consultécnica" })%>
         <link rel="stylesheet" href="css/form.css" />
         <title>hackaton</title>
-    </head>
+</head>
 
-    <body>
-        <%- include('components/header') %>
+<body>
+    <%- include('components/header') %>
         <main class="main">
             <h1 class="main-title">Infraestructura</h1>
             <form action="/encuestas" method="POST">
+                <input type="text" style="display: none;" value="<%= country%>" name="country">
                 <% for (let i=0; i < data.length; i++) { %>
-                <div class="question-container">
-                    <p class="question-title"><%= data[i].question%></p>
-                    <div class="options-container">
-                        <% for (let j=0; j < data[i].options.length; j++) {%>
-                        <input
-                            id="<%= data[i].id%><%= data[i].options[j].value%>"
-                            type="radio"
-                            value="<%= data[i].options[j].id%>"
-                            name="<%= data[i].id%>"
-                        />
-                        <label
-                            class="label-button"
-                            for="<%= data[i].id%><%= data[i].options[j].value%>"
-                            ><%= data[i].options[j].value%>
-                        </label>
-                        <%}%></div>
-                </div>
-                <%}%>
-                <button type="submit" class="button button-submit">Enviar</button>
+                    <div class="question-container">
+                        <p class="question-title">
+                            <%= data[i].question%>
+                        </p>
+                        <div class="options-container">
+                            <% for (let j=0; j < data[i].options.length; j++) {%>
+                                <input id="<%= data[i].id%><%= data[i].options[j].value%>" type="radio"
+                                    value="<%= data[i].options[j].id%>" name="<%= data[i].id%>" />
+                                <label class="label-button" for="<%= data[i].id%><%= data[i].options[j].value%>">
+                                    <%= data[i].options[j].value%>
+                                </label>
+                                <%}%>
+                        </div>
+                    </div>
+                    <%}%>
+                        <button type="submit" class="button button-submit">Enviar</button>
             </form>
         </main>
-    </body>
+</body>
+
 </html>
