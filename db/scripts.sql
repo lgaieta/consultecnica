@@ -24,3 +24,5 @@ insert into options_has_question (question_id_question, options_id_option) value
 select * from options_has_question;
 
 select * from answer;
+
+select count(id_answer) from answer where options_answer = 1 and question_answer = 1;
