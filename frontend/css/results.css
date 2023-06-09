@@ -1,3 +1,17 @@
+.data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.data-question {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
 .main-subtitle {
     font-family: 'Inter';
     font-style: normal;
@@ -9,4 +23,20 @@
     text-transform: none;
     padding: 2.1875rem;
     font-weight: 700;
+}
+
+.chart-container {
+    width: 100%;
+}
+
+@media (min-width: 960px) {
+    .chart-container {
+        width: 30%;
+    }
+}
+
+@media (min-width: 560px) {
+    .chart-container {
+        width: 60%;
+    }
 }

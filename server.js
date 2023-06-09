@@ -61,6 +61,10 @@ app.post('/encuestas', async (req, res) => {
     res.redirect("/")
 });
 
+app.get('/estadisticas_infraestructura', (req, res) => {
+    res.render('results')
+})
+
 app.get('/', (req, res) => {
     if (req.query?.lan === 'pr') res.render('home_br')
     else res.render('home');

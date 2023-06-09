@@ -10,87 +10,80 @@
 <body>
   <%- include("components/header")%>
 
-    <center>
+    <main class="main">
       <h1 class="main-title">Infraestructura</h1>
-      <p class="main-subtitle">¿Cómo considera la calidad y cantidad de materiales que ofrece su institución?</p>
-    </center>
 
-    <ul class="preguntas">
-      <% for (let i=0; i < preguntas.length; i++) {%>
-        <li>
-          <p>
-            <%= preguntas[i].titulo%>
-          </p>
+      <div class="data-container">
+        <div class="data-question">Pregunta de ejemplo</div>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <!--GRÁFICO CHARTJS-->
 
-        </li>
-        <%}%>
-    </ul>
+      <script type="module">
+        // Dados para o gráfico
+        var data = {
+          labels: ['Muy mala', 'Mala', 'Aceptable', 'Buena', 'Muy buena'],
+          datasets: [{
+            data: [25, 40, 15, 20, 40], // Valores percentuais das barras
+            backgroundColor: ['#751A18', '#C42E1C', '#D4B04A', '#70A34E', '#446441'],
+          },]
+        };
 
-    <!--GRÁFICO CHARTJS-->
+        // Configurações do gráfico
+        // var options = {
+        //   legend: { display: false },
+        //   scales: {
+        //     xAxes: [{
+        //       ticks: {
+        //         beginAtZero: true,
+        //         callback: function (value) {
+        //           return value + '%'; // Adiciona '%' ao valor exibido no eixo x
+        //         }
+        //       },
+        //       gridLines: {
+        //         display: false // Remove as linhas da grade do eixo x
+        //       }
+        //     }],
+        //     yAxes: [{
+        //       barPercentage: 0.8, // Ajusta a espessura das barras
+        //       gridLines: {
+        //         display: false // Remove as linhas da grade do eixo y
+        //       }
+        //     }]
+        //   },
+        //   tooltips: {
+        //     enabled: false // Desabilita a exibição de tooltips
+        //   },
+        //   plugins: {
+        //     datalabels: {
+        //       anchor: 'end',
+        //       align: 'center',
+        //       color: 'black',
+        //       font: {
+        //         weight: 'bold'
+        //       },
+        //       formatter: function (value) {
+        //         return value + '%'; // Adiciona '%' à porcentagem exibida no centro das barras
+        //       },
+        //       display: function (context) {
+        //         return context.dataset.data[context.dataIndex] !== 0; // Exibe apenas as porcentagens diferentes de zero
+        //       }
+        //     }
+        //   }
+        // };
 
-    <canvas id="myChart"></canvas>
+        // Criação do gráfico
 
-    <script>
-      // Dados para o gráfico
-      var data = {
-        labels: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-        datasets: [{
-          data: [25, 40, 15, 20], // Valores percentuais das barras
-          backgroundColor: ['#f6c53c', '#f6c53c', '#f6c53c', '#f6c53c'],
-        }]
-      };
+        var ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'pie',
+          data: data,
+        });
+      </script>
+    </main>
 
-      // Configurações do gráfico
-      var options = {
-        legend: { display: false },
-        scales: {
-          xAxes: [{
-            ticks: {
-              beginAtZero: true,
-              callback: function (value) {
-                return value + '%'; // Adiciona '%' ao valor exibido no eixo x
-              }
-            },
-            gridLines: {
-              display: false // Remove as linhas da grade do eixo x
-            }
-          }],
-          yAxes: [{
-            barPercentage: 0.8, // Ajusta a espessura das barras
-            gridLines: {
-              display: false // Remove as linhas da grade do eixo y
-            }
-          }]
-        },
-        tooltips: {
-          enabled: false // Desabilita a exibição de tooltips
-        },
-        plugins: {
-          datalabels: {
-            anchor: 'end',
-            align: 'center',
-            color: 'black',
-            font: {
-              weight: 'bold'
-            },
-            formatter: function (value) {
-              return value + '%'; // Adiciona '%' à porcentagem exibida no centro das barras
-            },
-            display: function (context) {
-              return context.dataset.data[context.dataIndex] !== 0; // Exibe apenas as porcentagens diferentes de zero
-            }
-          }
-        }
-      };
-
-      // Criação do gráfico
-      var ctx = document.getElementById('myChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'horizontalBar',
-        data: data,
-        options: options
-      });
-    </script>
 </body>
 
 </html>
