@@ -2,88 +2,95 @@
 <html lang="en">
 
 <head>
-    <%- include("components/head", {title: "Estadísticas - Consultécnica" })%>
-        <link rel="stylesheet" href="css/results.css">
+  <%- include("components/head", {title: "Estadísticas - Consultécnica" })%>
+    <link rel="stylesheet" href="css/results.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
 
 <body>
-    <%- include("components/header")%>
+  <%- include("components/header")%>
 
-        <center>
-            <h1 class="main-title">Infraestructura</h1>
-            <p class="main-subtitle">¿Cómo considera la calidad y cantidad de materiales que ofrece su institución?</p>
-        </center>
+    <center>
+      <h1 class="main-title">Infraestructura</h1>
+      <p class="main-subtitle">¿Cómo considera la calidad y cantidad de materiales que ofrece su institución?</p>
+    </center>
 
-        <ul class="preguntas">
-            <% for (let i=0; i < preguntas.length; i++) {%>
-                <li>
-                    <p>
-                        <%= preguntas[i].titulo%>
-                    </p>
+    <ul class="preguntas">
+      <% for (let i=0; i < preguntas.length; i++) {%>
+        <li>
+          <p>
+            <%= preguntas[i].titulo%>
+          </p>
 
-                </li>
-                <%}%>
-        </ul>
+        </li>
+        <%}%>
+    </ul>
 
-        <!--GRÁFICO CHARTJS-->
+    <!--GRÁFICO CHARTJS-->
 
-        <canvas class="line-chart"></canvas>
+    <canvas id="myChart"></canvas>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script>
+      // Dados para o gráfico
+      var data = {
+        labels: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+        datasets: [{
+          data: [25, 40, 15, 20], // Valores percentuais das barras
+          backgroundColor: ['#f6c53c', '#f6c53c', '#f6c53c', '#f6c53c'],
+        }]
+      };
 
-        <script>
-            var ctx = document.getElementsByClassName("line-chart");
+      // Configurações do gráfico
+      var options = {
+        legend: { display: false },
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true,
+              callback: function (value) {
+                return value + '%'; // Adiciona '%' ao valor exibido no eixo x
+              }
+            },
+            gridLines: {
+              display: false // Remove as linhas da grade do eixo x
+            }
+          }],
+          yAxes: [{
+            barPercentage: 0.8, // Ajusta a espessura das barras
+            gridLines: {
+              display: false // Remove as linhas da grade do eixo y
+            }
+          }]
+        },
+        tooltips: {
+          enabled: false // Desabilita a exibição de tooltips
+        },
+        plugins: {
+          datalabels: {
+            anchor: 'end',
+            align: 'center',
+            color: 'black',
+            font: {
+              weight: 'bold'
+            },
+            formatter: function (value) {
+              return value + '%'; // Adiciona '%' à porcentagem exibida no centro das barras
+            },
+            display: function (context) {
+              return context.dataset.data[context.dataIndex] !== 0; // Exibe apenas as porcentagens diferentes de zero
+            }
+          }
+        }
+      };
 
-            var chartGraph = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["text-01", "text-02", "text-03", "text-04"],
-                    datasets: [{
-
-                        label: "PARAGUAY",
-                        data: [20, 25, 15, 15],
-                        borderWidth: 6,
-                        borderColor: 'transparent',
-                        backgroundColor: 'rgba(255,215,0)',
-                    },
-                    {
-                        label: "BRASIL",
-                        data: [3, 15, 30, 25],
-                        borderWidth: 6,
-                        borderColor: 'transparent',
-                        backgroundColor: '#008000',
-                    },
-                    {
-                        label: "ARGENTINA",
-                        data: [6, 35, 10, 45],
-                        borderWidth: 6,
-                        borderColor: 'transparent',
-                        backgroundColor: '#BE2444',
-                    },
-                    {
-                        label: "URUGUAY",
-                        data: [3, 15, 7, 4],
-                        borderWidth: 6,
-                        borderColor: 'transparent',
-                        backgroundColor: '#0489ef',
-                    },
-                    ]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        fontSize: 20,
-                        text: "TITULO DEL GRÁFICO AQUÍ"
-
-                    },
-                    labels: {
-                        fontStyle: "bold"
-                    }
-                }
-            });
-
-        </script>
-
+      // Criação do gráfico
+      var ctx = document.getElementById('myChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'horizontalBar',
+        data: data,
+        options: options
+      });
+    </script>
 </body>
 
 </html>
