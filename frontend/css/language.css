@@ -19,22 +19,6 @@
     text-transform: none;
 }
 
-.button {
-    font-size: 1.125rem;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0px;
-    padding: 16px 24px;
-    flex-wrap: nowrap;
-    border: none;
-    width: 100%;
-    font-weight: 700;
-    transition: all 0.3s ease;
-}
-
 .button-primary {
     background-image: linear-gradient(to right, #0489ef, #142396);
     color: #ffffff;
