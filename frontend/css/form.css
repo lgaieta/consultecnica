@@ -39,6 +39,7 @@ input[type='radio'] {
     background-color: rgba(170, 185, 215, 0.34375);
     border-radius: 1rem;
     transition: .3s ease background-color;
+    user-select: none;
 }
 
 input[type='radio']:checked+label {
