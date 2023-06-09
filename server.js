@@ -18,12 +18,15 @@ app.get('/idioma', (req, res) => {
     res.render('language');
 });
 
+
 app.get('/secciones', (req, res) => {
-    res.render('sections');
+    if (req.query?.lan === 'pr') res.render('sections_br')
+    else res.render('sections');
 });
 
 app.get('/paises', (req, res) => {
-    res.render('country');
+    if (req.query?.lan === 'pr') res.render('country_br')
+    else res.render('country');
 });
 
 app.get('/encuestas_infraestructura', async (req, res) => {
@@ -59,7 +62,8 @@ app.post('/encuestas', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('home');
+    if (req.query?.lan === 'pr') res.render('home_br')
+    else res.render('home');
 });
 
 app.listen(port, () => {
