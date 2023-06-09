@@ -1,0 +1,48 @@
+.country {
+    height: 10.3125rem;
+    border-radius: 0.5rem;
+    background-color: rgba(170, 185, 215, 0.34375);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: 1.5rem 1.75rem 2.25rem;
+    flex-wrap: nowrap;
+}
+
+.country_size {
+    width: 7.25rem;
+    height: 7.1875rem;
+}
+
+.country_title {
+    height: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem 0rem;
+    padding: 0rem;
+    flex-wrap: nowrap;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.container_country {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cards-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 2rem;
+    align-items: start;
+    justify-content: start;
+    gap: 2rem;
+    padding: 0px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
