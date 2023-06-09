@@ -1,4 +1,5 @@
 import express from 'express';
+import { dbPoolAsync } from './dbPool.js';
 
 const app = express();
 const port = 3000;
@@ -25,25 +26,24 @@ app.get('/paises', (req, res) => {
     res.render('country');
 });
 
-app.get('/encuestas_infraestructura', (req, res) => {
-    const data = [
-        {
-            id: 410,
-            question: 'pregunta de ejemplo',
-            options: [
-                { id: 1, value: 'Si' },
-                { id: 2, value: 'No' },
-            ],
-        },
-        {
-            id: 412,
-            question: 'pregunta de ejemplo',
-            options: [
-                { id: 1, value: 'Si' },
-                { id: 2, value: 'No' },
-            ],
-        },
-    ];
+app.get('/encuestas_infraestructura', async (req, res) => {
+    const questions = (await dbPoolAsync.query('select * from question where id_question = 1 or id_question = 2'))[0]
+    let data = questions.map(question => ({ id: question.id_question, question: question.text, options: [] }))
+
+    for (let index = 0; index < data.length; index++) {
+        const question = data[index];
+
+        const optionsIds = (await dbPoolAsync.query('select options_id_option from options_has_question where question_id_question = ?', question.id))[0]
+
+        let options = []
+
+        for (let { options_id_option } of optionsIds) {
+            const queryData = (await dbPoolAsync.query('select value from options where id_option = ?', options_id_option))[0][0]
+            options.push({ id: options_id_option, value: queryData.value })
+        }
+
+        data[index] = { ...question, options }
+    }
     res.render('form_infraestructura', { data });
 });
 

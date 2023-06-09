@@ -11,5 +11,7 @@ insert into options (`value`) values ("Muy mala"),("Mala"),("Aceptable"),("Buena
 
 select * from options;
 
-insert into options_has_question (options_id_option, question_id_question) values (1,1),(1,2),(1,3),(1,4),(1,5);
-insert into options_has_question (options_id_option, question_id_question) values (2,6),(2,7);
+insert into options_has_question (question_id_question, options_id_option) values (1,1),(1,2),(1,3),(1,4),(1,5);
+insert into options_has_question (question_id_question, options_id_option) values (2,6), (2, 7);
+
+select * from options_has_question;
