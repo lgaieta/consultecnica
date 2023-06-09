@@ -27,7 +27,7 @@ app.get('/paises', (req, res) => {
 });
 
 app.get('/encuestas_infraestructura', async (req, res) => {
-    const questions = (await dbPoolAsync.query('select * from question where id_question = 1 or id_question = 2'))[0]
+    const questions = (await dbPoolAsync.query('select * from question where section_question = 1'))[0]
     let data = questions.map(question => ({ id: question.id_question, question: question.text, options: [] }))
 
     for (let index = 0; index < data.length; index++) {
