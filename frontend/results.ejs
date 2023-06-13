@@ -1,107 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
+    <head>
+        <%- include("components/head", {title: "Estadísticas - Consultécnica" })%>
+        <link rel="stylesheet" href="css/results.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    </head>
 
-<head>
-  <%- include("components/head", {title: "Estadísticas - Consultécnica" })%>
-    <link rel="stylesheet" href="css/results.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-</head>
+    <body>
+        <%- include("components/header")%>
 
-<body>
-  <%- include("components/header")%>
+        <main class="main">
+        <h1 class="main-title">Infraestructura</h1>
 
-    <main class="main">
-      <h1 class="main-title">Infraestructura</h1>
+        <div class="data-container">
+            <% for (const question of data) {%>
+                <div class="data-question"><%= question.question%></div>
 
-      <div class="data-container">
-        <% for (const question of data) {%>
-          <div class="data-question"><%= question.question%></div>
+                <div class="chart-container">
+                    <canvas id="<%= question.id%>"></canvas>
+                </div>
 
-          <div class="chart-container">
-            <canvas id="<%= question.id%>"></canvas>
-          </div>
-
-          <script>
-            let data = {
-              labels: <%= question.labels%>,
-              datasets: [{
-                data: <%= question.values%>, // Valores percentuais das barras
-                backgroundColor: <%= question.options.length%> > 2 ? ['#751A18', '#C42E1C', '#D4B04A', '#70A34E', '#446441']: ['#C42E1C', '#70A34E'],
-              },]
-            };
-    
-            let context = document.getElementById("<%= question.id%>").getContext('2d');
-            
-            new Chart(context, {
-              type: 'pie',
-              data: data,
-            });
-
-          </script>
-          
-          <%}%>
-          <div class="data-question">¿Cómo considera la calidad y cantidad de materiales que ofrece su institución?</div>
-
-          <div class="chart-container">
-            <canvas id="ch1"></canvas>
-          </div>
-        <div class="data-question">¿Cuenta su centro educativo con conexión a internet?</div>
-        <div class="chart-container">
-          <canvas id="ch3"></canvas>
-        </div>
-        <div class="data-question">¿Cómo describiría la calidad de la conexión?</div>
-        <div class="chart-container">
-          <canvas id="ch2"></canvas>
-        </div>
-      </div>
-      <!--GRÁFICO CHARTJS-->
-
-      <script type="module">
-        // Dados para o gráfico
-        var data1 = {
-          labels: ['Muy mala', 'Mala', 'Aceptable', 'Buena', 'Muy buena'],
-          datasets: [{
-            data: [25, 40, 15, 20, 40], // Valores percentuais das barras
-            backgroundColor: ['#751A18', '#C42E1C', '#D4B04A', '#70A34E', '#446441'],
-          },]
-        };
-
-        var ctx = document.getElementById('ch1').getContext('2d');
-        new Chart(ctx, {
-          type: 'pie',
-          data: data1,
-        });
-
-        var data2 = {
-          labels: ['Muy mala', 'Mala', 'Aceptable', 'Buena', 'Muy buena'],
-          datasets: [{
-            data: [50, 120, 65, 40, 25], // Valores percentuais das barras
-            backgroundColor: ['#751A18', '#C42E1C', '#D4B04A', '#70A34E', '#446441'],
-          },]
-        };
-
-        var ctx = document.getElementById('ch2').getContext('2d');
-        new Chart(ctx, {
-          type: 'pie',
-          data: data2,
-        });
-
-        var data3 = {
-          labels: ['No', 'Sí'],
-          datasets: [{
-            data: [30, 60], // Valores percentuais das barras
-            backgroundColor: ['#C42E1C', '#70A34E'],
-          },]
-        };
-
-        var ctx = document.getElementById('ch3').getContext('2d');
-        new Chart(ctx, {
-          type: 'pie',
-          data: data3,
-        });
-      </script>
-    </main>
-
-</body>
-
+                <script>
+                new Chart(
+                    document.getElementById("<%= question.id%>").getContext("2d"),
+                    {
+                    type: "pie",
+                    data: {
+                        labels: JSON.parse(`<%- question.labels%>`),
+                        datasets: [
+                        {
+                            data: JSON.parse(`[<%- question.values%>]`),
+                            backgroundColor:
+                            JSON.parse(`<%- question.options.length%>`) > 2
+                                ? [
+                                    "#751A18",
+                                    "#C42E1C",
+                                    "#D4B04A",
+                                    "#70A34E",
+                                    "#446441",
+                                ]
+                                : ["#C42E1C", "#70A34E"],
+                        },
+                        ],
+                    },
+                    }
+                );
+                </script>
+            <%}%>
+        </main>
+    </body>
 </html>
